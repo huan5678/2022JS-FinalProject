@@ -1,18 +1,20 @@
 import React, {createContext, useState, useContext} from 'react';
 import useAxios from '../hooks/useAxios';
 import {cartAxios} from '../apis/cartApi';
+import {customOrderAxios} from '../apis/customOrderApi';
 
-const frontEndContext = createContext();
+const FrontEndContext = createContext();
 
 export const FrontendContextProvider = ({children}) => {
   const [ cartData, setCartData ] = useState([]);
   const [ productsData, setProductsData ] = useState([]);
   const [ cartTotal, setCartTotal ] = useState(0);
   const [ cartFinalTotal, setCartFinalTotal ] = useState(0);
-  const {data: updateCartData, error: cartDataError, loading: cartLoading, axiosFetch} = useAxios();
+  const {data: updateCartData, error: cartDataError, loading: cartLoading, axiosFetch: cartFetchAxios} = useAxios();
+  const {data: customOrderData, error: customOrderDataError, loading: customOrderLoading, axiosFetch: axiosFetchCustomOrder} = useAxios();
 
-  const handleUpdateChart = (id, qty, type) => {
-    axiosFetch({
+  const handleUpdateChart = (id, qty, type = 'get') => {
+    cartFetchAxios({
       axiosInstance: cartAxios,
       method:
         type === 'get'
@@ -35,8 +37,18 @@ export const FrontendContextProvider = ({children}) => {
     });
   };
 
+  const handlePostCustomOrder = (data) => {
+    axiosFetchCustomOrder({
+      axiosInstance: customOrderAxios,
+      method: 'POST',
+      requestConfig: {
+        data,
+      },
+    });
+  };
+
   return (
-    <frontEndContext.Provider
+    <FrontEndContext.Provider
       value={{
         cartData,
         setCartData,
@@ -50,12 +62,16 @@ export const FrontendContextProvider = ({children}) => {
         updateCartData,
         cartDataError,
         cartLoading,
+        handlePostCustomOrder,
+        customOrderData,
+        customOrderDataError,
+        customOrderLoading,
       }}
     >
       {children}
-    </frontEndContext.Provider>
+    </FrontEndContext.Provider>
   );
 };
 
-export const useFrontEndContext = () => useContext(frontEndContext);
+export const useFrontEndContext = () => useContext(FrontEndContext);
 

@@ -44,18 +44,18 @@ export const TransportSection = () => {
     ],
   };
   return (
-    <section className="pt-8 pb-[4.5rem] select-none">
+    <section id="transport" className="pt-8 pb-[4.5rem] select-none">
       <Title className="mb-8" content={title} />
-      <ul className="flex justify-center items-center gap-6">
+      <ul className="flex items-center justify-center gap-6">
         {shippingList.map((item) => {
           return (
             <li key={item.id} className="flex flex-col items-center">
               {item.icon === 'arrow_right' ? (
-                <span className="material-icons text-4xl -translate-y-6">{item.icon}</span>
+                <span className="text-4xl -translate-y-6 material-icons">{item.icon}</span>
               ) : (
                 <>
                   <div className="flex items-center justify-center p-7 rounded-full border-[0.1875rem] border-black mb-2">
-                    <span className="material-icons text-6xl">{item.icon}</span>
+                    <span className="text-6xl material-icons">{item.icon}</span>
                   </div>
                   <div className="text-center">
                     <p className="text-h3">{item.title}</p>

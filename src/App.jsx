@@ -8,7 +8,6 @@ import CartSection from './section/CartSection';
 import FormSection from './section/FormSection';
 
 function App() {
-
   return (
     <>
       <NavBar />

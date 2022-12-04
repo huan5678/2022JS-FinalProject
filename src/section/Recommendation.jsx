@@ -90,7 +90,8 @@ export const RecommendationSection = () => {
       product: 'Antony 雙人床架',
       comments: '睡起來很舒適',
     },
-  ]};
+    ]
+  };
   return (
     <section id="recommendation" className="bg-secondary">
       <div className="container pt-[3.75rem] pb-20 select-none">
@@ -111,22 +112,22 @@ export const RecommendationSection = () => {
           {recommendationList.map((recommendation, index) =>
             index < 5 ? (
               <SwiperSlide key={recommendation.id}>
-                <div className="bg-white flex items-center gap-4">
+                <div className="flex items-center gap-4 bg-white">
                   <img
                     src={recommendation.productPicture}
-                    className="h-24 w-24 object-cover aspect-square"
+                    className="object-cover w-24 h-24 aspect-square"
                     alt={recommendation.product}
                   />
                   <div className="flex flex-col justify-center gap-2">
                     <div className="flex gap-4">
                       <img
                         src={recommendation.userPicture}
-                        className="h-10 w-10"
+                        className="w-10 h-10"
                         alt={recommendation.name}
                       />
                       <div className="flex flex-col justify-center">
                         <h3>{recommendation.name}</h3>
-                        <p className="text-primary text-sm">{recommendation.product}</p>
+                        <p className="text-sm text-primary">{recommendation.product}</p>
                       </div>
                     </div>
                     <p>{recommendation.comments}</p>
@@ -151,22 +152,22 @@ export const RecommendationSection = () => {
           {recommendationList.map((recommendation, index) =>
             index > 4 ? (
               <SwiperSlide key={recommendation.id}>
-                <div className="bg-white flex items-center gap-4">
+                <div className="flex items-center gap-4 bg-white">
                   <img
                     src={recommendation.productPicture}
-                    className="h-24 w-24 object-cover aspect-square"
+                    className="object-cover w-24 h-24 aspect-square"
                     alt={recommendation.product}
                   />
                   <div className="flex flex-col justify-center gap-2">
                     <div className="flex gap-4">
                       <img
                         src={recommendation.userPicture}
-                        className="h-10 w-10"
+                        className="w-10 h-10"
                         alt={recommendation.name}
                       />
                       <div className="flex flex-col justify-center">
                         <h3>{recommendation.name}</h3>
-                        <p className="text-primary text-sm">{recommendation.product}</p>
+                        <p className="text-sm text-primary">{recommendation.product}</p>
                       </div>
                     </div>
                     <p>{recommendation.comments}</p>

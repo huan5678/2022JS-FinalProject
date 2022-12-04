@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import Title from '../components/Title';
 import {useFrontEndContext} from '../context/FrontendContextStore';
 import {useNumberWithCommas} from '../hooks/useNumberWithCommas';
@@ -16,14 +16,15 @@ export const CartSection = () => {
   const title = '我的購物車';
 
   useEffect(() => {
-    handleUpdateChart(null, null, 'get');
+    handleUpdateChart();
   }, []);
   useEffect(() => {
+    handleUpdateChart();
     if (updateCartData) {
       setCartData(updateCartData.carts);
       setCartFinalTotal(updateCartData.finalTotal);
     }
-  }, [updateCartData]);
+  }, [ updateCartData ]);
 
   return cartData.length > 0 && (
     <section className="bg-light pt-12 pb-[4.375rem] select-none text-h3">

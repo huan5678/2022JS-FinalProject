@@ -32,13 +32,13 @@ export const BannerSection = () => {
   };
   return (
     <>
-      <section className="container mb-[3.75rem]">
+      <section id="bedAdvantage" className="container mb-[3.75rem]">
         <div
           className="mb-[3.75rem] max-h-[26.25rem] h-screen bg-no-repeat bg-cover"
           style={{backgroundImage: `url(${bannerImg[0]})`}}
         >
           <div className="flex justify-start items-end px-[3.25rem] pb-12 h-full">
-            <h1 className="text-h1 text-white">
+            <h1 className="text-white text-h1">
               {title}
               <br />
               {subTitle}
@@ -47,7 +47,7 @@ export const BannerSection = () => {
         </div>
         <div id="bedAdvantage">
           <Title className="mb-7" content={advantage.advantageTitle} />
-          <ul className="flex justify-between items-start">
+          <ul className="flex items-start justify-between">
             {advantage.advantageList.map((advantage) => {
               return (
                 <li key={advantage.id}>

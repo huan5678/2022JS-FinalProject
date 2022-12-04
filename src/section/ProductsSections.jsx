@@ -9,7 +9,9 @@ export const ProductsSections = () => {
   const [ products, setProducts ] = useState([]);
 
   const {data, loading, error, axiosFetch} = useAxios();
-  const filterList = [ '全部', '床架', '收納', '窗簾', ];
+  const filterList = useMemo(() => {
+    return [ '全部', '床架', '收納', '窗簾', ]
+  }, []);
 
   const getProductsData = async () => {
     await axiosFetch({
@@ -62,7 +64,7 @@ export const ProductsSections = () => {
             {filterList.map((item) => {
               return (
                 <li
-                  className="bg-white pl-5 py-1"
+                  className="py-1 pl-5 bg-white"
                   key={item}
                   onClick={() => {
                     setFilterItems(item);
