@@ -1,5 +1,5 @@
 import BannerSection from './section/BannerSection';
-import ComparativeSection from './section/comparativeSection';
+import ComparativeSection from './section/ComparativeSection';
 import NavBar from './section/NavBar';
 import Recommendation from './section/Recommendation';
 import TransportSection from './section/TransportSection';
